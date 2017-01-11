@@ -17,10 +17,9 @@
 
 {# Define the site navigation #}
 {% set nav = {
-	about:    { title: "The Brewery", desc: "About Us" },
-	services: { title: "How It’s Made", desc: "Services" },
-	work:     { title: "What’s On Tap", desc: "Our Work" },
-	news:     { title: "Brew News", desc: "The Latest" }
+	services: { title: "Ready to Buy", desc: "Services" },
+	work:     { title: "Sell to Us", desc: "Our Work" },
+	news:     { title: "List a House", desc: "The Latest" }
 } %}
 
 {# Set the `bodyClass` variable to the entry's section handle if there is one,
@@ -36,7 +35,7 @@
 
 
 {% block body %}
-	<div id="bar">
+	<div id="bar" class="hide">
 		<div class="flex">
 			<div class="g1-flex4 g2-flex6 g3-flex12">
 				<div id="social">
@@ -56,15 +55,18 @@
 	<header id="header">
 		<div class="flex">
 			<div class="g1-flex4 g2-flex6 g3-flex12">
-				<h1><a href="{{ siteUrl }}"><img src="{{ craft.config.environmentVariables.assetsBaseUrl }}/images/happylager.svg" width="300" height="125" alt="Happy Lager - Enjoying Every Bit - Since 2006"></a></h1>
+				<h1><a href="{{ siteUrl }}"><img src="{{ craft.config.environmentVariables.assetsBaseUrl }}/images/homesource-logo.jpg" width="173px" alt="Homesource - Simple Buy. Simple Sell. Real Estate."></a></h1>
 				<nav>
 					<ul>
+            <li>
+              <button class="button-w-icon" href="{{ url('portal') }}"><i class="icon-gear"></i>Tenant Portal</button>
+            </li>
 						{% for slug, item in nav %}
 							<li>
 								<a href="{{ url(slug) }}" {% if craft.request.firstSegment == slug %}class="sel"{% endif %}>
 									<strong>{{ item.title }}</strong>
-									<span>-</span>
-									<em>{{ item.desc }}</em>
+									<!-- <span>-</span> -->
+									<!-- <em>{{ item.desc }}</em> -->
 								</a>
 							</li>
 						{% endfor %}
