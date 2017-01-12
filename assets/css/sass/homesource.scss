@@ -517,7 +517,7 @@ strong {
 }
 
 /* header */
-$logoHeight: 125px;
+$logoHeight: 49px;
 $navWidth: 150px;
 $navSpacing: 50px;
 
@@ -549,7 +549,7 @@ $navSpacing: 50px;
     display: block;
     text-align: center;
 
-		@media all and (min-width: $mq4/$base+em) {
+    @media all and (min-width: $mq4/$base+em) {
 			display: block;
 	  }
     ul {
