@@ -17,10 +17,9 @@
 
 {# Define the site navigation #}
 {% set nav = {
-	about:    { title: "The Brewery", desc: "About Us" },
-	services: { title: "How It’s Made", desc: "Services" },
-	work:     { title: "What’s On Tap", desc: "Our Work" },
-	news:     { title: "Brew News", desc: "The Latest" }
+	services: { title: "Ready to Buy", desc: "Services" },
+	work:     { title: "Sell to Us", desc: "Our Work" },
+	news:     { title: "List a House", desc: "The Latest" }
 } %}
 
 {# Set the `bodyClass` variable to the entry's section handle if there is one,
@@ -36,7 +35,7 @@
 
 
 {% block body %}
-	<div id="bar">
+	<div id="bar" class="hide">
 		<div class="flex">
 			<div class="g1-flex4 g2-flex6 g3-flex12">
 				<div id="social">
@@ -56,15 +55,18 @@
 	<header id="header">
 		<div class="flex">
 			<div class="g1-flex4 g2-flex6 g3-flex12">
-				<h1><a href="{{ siteUrl }}"><img src="{{ craft.config.environmentVariables.assetsBaseUrl }}/images/happylager.svg" width="300" height="125" alt="Happy Lager - Enjoying Every Bit - Since 2006"></a></h1>
+				<h1><a href="{{ siteUrl }}"><img src="{{ craft.config.environmentVariables.assetsBaseUrl }}/images/homesource-logo.jpg" width="173px" alt="Homesource - Simple Buy. Simple Sell. Real Estate."></a></h1>
 				<nav>
 					<ul>
+            <li>
+              <button class="button-w-icon" href="{{ url('portal') }}"><i class="icon-gear"></i>Tenant Portal</button>
+            </li>
 						{% for slug, item in nav %}
 							<li>
 								<a href="{{ url(slug) }}" {% if craft.request.firstSegment == slug %}class="sel"{% endif %}>
 									<strong>{{ item.title }}</strong>
-									<span>-</span>
-									<em>{{ item.desc }}</em>
+									<!-- <span>-</span> -->
+									<!-- <em>{{ item.desc }}</em> -->
 								</a>
 							</li>
 						{% endfor %}
@@ -81,12 +83,58 @@
 	<footer id="footer">
 		<div class="flex">
 			<div class="g1-flex4 g2-flex3 g3-flex6">
-				<img src="{{ craft.config.environmentVariables.assetsBaseUrl }}/images/hl.svg" width="76" height="76" alt="H.L.">
-				<p class="copyright">{{ footer.copyrightNotice|replace('{year}', now|date('Y')) }}</p>
+				<h3>Stay Connected</h3>
+        <p>Sign up for special offers and email updates. We do not share your personal information.</p>
+        <form action="" class="signup-form">
+          <input type="text" name="q" placeholder="Please Enter your Email Address">
+          <input type="submit" name="Submit" value="Sign Up">
+        </form>
+        <div class="social-buttons">
+          <a href="#" title="Email Us"><i class="icon-envelope"></i></a>
+          <a href="#" title="Find Us on Facebook"><i class="icon-facebook"></i></a>
+          <a href="#" title="Connect on LinkedIn"><i class="icon-linkedin"></i></a>
+        </div>
 			</div>
 			<div class="g1-flex4 g2-flex3 g3-flex6">
-				<a class="contact" href="mailto:{{ footer.email }}">{{ footer.contactUsLabel }}</a>
+        <h3>Navigate</h3>
+          <div class="flex">
+            <div class="g1-flex4 g2-flex3 g3-flex6">
+              <ul>
+                <li><a href="#" title="">List A House</a></li>
+                <li><a href="#" title="">Sell to Us</a></li>
+                <li><a href="#" title="">Buy A Home</a></li>
+                <li><a href="#" title="">Home Listings</a></li>
+              </ul>
+            </div>
+            <div class="g1-flex4 g2-flex3 g3-flex6">
+              <ul>
+                <li><a href="#" title="">About Us</a></li>
+                <li><a href="#" title="">How Homesource Helps You</a></li>
+                <li><a href="#" title="">What Our Customers Say</a></li>
+                <li><a href="#" title="">Contact Us</a></li>
+              </ul>
+          </div>
+        </div>
 			</div>
 		</div>
+    <div class="contact-info">
+      <div class="flex">
+        <div class="g1-flex4 g2-flex6 g3-flex12">
+          HOMESOURCE PARTNERS, LLC <span class="bull">&bull;</span>
+          3015 PENNSYLVANIA AVE, COLORADO SPRINGS, CO 80907 <span class="bull">&bull;</span>
+          <a href="#">MAP</a> <span class="bull">&bull;</span>
+          OFFICE: <a href="#">(719) 328-0300</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="flex">
+        <div class="g1-flex4 g2-flex6 g3-flex12">
+          <a href="{{ footer.privacyPolicyLabel }}">{{ footer.privacyPolicyLabel }}</a>
+          <a href="{{ footer.termsLabel }}">{{ footer.termsLabel }}</a>
+          <span>{{ footer.copyrightNotice|replace('{year}', now|date('Y')) }}</span>
+        </div>
+      </div>
+    </div>
 	</footer>
 {% endblock %}

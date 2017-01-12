@@ -7,9 +7,9 @@
 $images_path: "../images/";
 
 // fonts
-$font-primary: "montserratregular", serif;
-$font-secondary: "steelfish_rgbold", clean, sans-serif;
-$font-tertiary: "montserratbold", clean, sans-serif;
+$font-primary: "Open Sans", sans-serif;
+$font-secondary: "Open Sans", sans-serif;
+$font-tertiary: "Open Sans", sans-serif;
 $base: 16;
 $font-size-list: 50 30 20 18 16 12;
 $med-font-size-list: 60 40 21 20 16 12;
@@ -39,7 +39,8 @@ $color-3: #d3d3d3;
 $color-4: #cf6a34;
 $color-5: #e1dfdf;
 $bgColor: #f8f8f9;
-$yellow: #fbd334;
+$brand-red: #E93918;
+$brand-black: #222;
 $lightGray: #d3d3d3;
 $footerTextColor: #f8f8f8;
 $barBgColor: #222;
@@ -140,19 +141,21 @@ $barHeight: 30px;
 }
 
 @mixin headingText {
-	font-family: steelfish_rgbold, sans-serif;
+	font-family: Open Sans, sans-serif;
 	text-transform: uppercase;
+  font-weight: bold;
 }
 
 @mixin subheadingText {
-	font-family: montserratbold, sans-serif;
+	font-family: Open Sans, sans-serif;
+  font-weight: bold;
   text-transform: uppercase;
   font-size: 18px;
   letter-spacing: 0.05em;
 }
 
 @mixin smallText {
-	font-family: montserratregular, sans-serif;
+	font-family: Open Sans, sans-serif;
 	font-size: 10px;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
@@ -229,7 +232,7 @@ $barHeight: 30px;
   }
   &.alt3 {
     @extend .alt;
-    border-color: $yellow;
+    border-color: $brand-red;
 
     &:after {
       margin-left: -280px;
@@ -515,15 +518,16 @@ strong {
 
 /* header */
 $logoHeight: 125px;
-$navWidth: 115px;
+$navWidth: 150px;
 $navSpacing: 50px;
 
 #header {
 	position: relative;
-	border-bottom: 4px solid $lightGray;
+  background: #fff;
+	// border-bottom: 4px solid $lightGray; removeMe
 
   .flex {
-    padding-bottom: 0 !important;
+    padding: 0  1.25rem !important;
   }
 
 	.flex > * {
@@ -533,11 +537,11 @@ $navSpacing: 50px;
 	h1 {
     display: inline-block;
     position: relative;
-    top: 20px;
-    left: calc(50% - 150px);
+    top: 8px;
+    // left: calc(50% - 150px); removeMe
 
     @media all and (min-width: $mq4/$base+em) {
-      top: 35px;
+      top: 8px;
       position: absolute;
     }
 	}
@@ -555,7 +559,7 @@ $navSpacing: 50px;
       display: block;
       text-align: center;
       width: 50%;
-      float: left;
+      float: right;
 
       @media all and (min-width: $mq1/$base+em) {
         width: auto;
@@ -564,20 +568,20 @@ $navSpacing: 50px;
       }
 
       @media all and (min-width: $mq4/$base+em) {
-  			float: left;
+  			float: right;
   			width: $navWidth;
       }
 
 			&:not(:first-child) {
 
         @media all and (min-width: $mq4/$base+em) {
-          margin-left: $navSpacing;
+          // margin-left: $navSpacing; removeMe
         }
       }
 			&:nth-child(3) {
 
         @media all and (min-width: $mq4/$base+em) {
-          margin-left: $navSpacing * 2 + 300;
+          // margin-left: $navSpacing * 2 + 300; removeMe
         }
       }
 			a {
@@ -586,20 +590,20 @@ $navSpacing: 50px;
         position: relative;
 
         @media all and (min-width: $mq1/$base+em) {
-          padding: 48px 20px;
+          padding: 20px 20px;
         }
         @media all and (min-width: $mq2/$base+em) {
-          padding: 48px;
+          padding: 20px;
         }
 
         @media all and (min-width: $mq4/$base+em) {
-          padding: 48px 0;
+          padding: 20px 0;
         }
 
 				&:before {
           display: block;
           @include icon;
-          color: $yellow;
+          color: $brand-red;
           font-size: 45px;
           line-height: 50px;
         }
@@ -619,23 +623,23 @@ $navSpacing: 50px;
           }
         }
 
-				&[href$='about']:before {
-          content: 'brewery';
-        }
-				&[href$='services']:before {
-          content: 'beaker';
-        }
-				&[href$='work']:before {
-          content: 'mug';
-        }
-				&[href$='news']:before {
-          content: 'news';
-        }
+				// &[href$='about']:before {
+        //   content: 'brewery';
+        // }
+				// &[href$='services']:before {
+        //   content: 'beaker';
+        // }
+				// &[href$='work']:before {
+        //   content: 'mug';
+        // }
+				// &[href$='news']:before {
+        //   content: 'news';
+        // } removeMe
 
 				strong {
           display: block;
-          font-size: 22px;
-          line-height: 40px;
+          font-size: 14px;
+          line-height: 20px;
           @include headingText;
           color: #383838;
         }
@@ -655,6 +659,12 @@ $navSpacing: 50px;
             content: ' ]';
           }
 				}
+        &:hover{
+          background: #505050;
+          strong{
+            color: white;
+          }
+        }
 			}
 		}
 	}
@@ -1283,51 +1293,51 @@ nav.prev-next-entry {
     padding: 10px 32px;
   }
 }
-.icon-beer,
-.icon-beaker,
-.icon-news,
-.icon-beercan {
-  position: relative;
-
-  &:before {
-    position: absolute;
-    content: '';
-    display: block;
-    left: 0;
-    top: 0;
-    width: 23px;
-    height: 31px;
-    background: url($images_path+'icon-beer.png') no-repeat left top;
-    background-size: 23px 31px;
-  }
-}
-.icon-beaker {
-
-  &:before {
-    width: 26px;
-    height: 28px;
-    background-image: url($images_path+'icon-beaker.png');
-    background-size: 26px 28px;
-  }
-}
-.icon-news {
-
-  &:before {
-    width: 29px;
-    height: 29px;
-    background-image: url($images_path+'icon-news.png');
-    background-size: 29px 29px;
-  }
-}
-.icon-beercan {
-
-  &:before {
-    width: 16px;
-    height: 30px;
-    background-image: url($images_path+'icon-beercan.png');
-    background-size: 16px 30px;
-  }
-}
+// .icon-beer,
+// .icon-beaker,
+// .icon-news,
+// .icon-beercan {
+//   position: relative;
+//
+//   &:before {
+//     position: absolute;
+//     content: '';
+//     display: block;
+//     left: 0;
+//     top: 0;
+//     width: 23px;
+//     height: 31px;
+//     background: url($images_path+'icon-beer.png') no-repeat left top;
+//     background-size: 23px 31px;
+//   }
+// }
+// .icon-beaker {
+//
+//   &:before {
+//     width: 26px;
+//     height: 28px;
+//     background-image: url($images_path+'icon-beaker.png');
+//     background-size: 26px 28px;
+//   }
+// }
+// .icon-news {
+//
+//   &:before {
+//     width: 29px;
+//     height: 29px;
+//     background-image: url($images_path+'icon-news.png');
+//     background-size: 29px 29px;
+//   }
+// }
+// .icon-beercan {
+//
+//   &:before {
+//     width: 16px;
+//     height: 30px;
+//     background-image: url($images_path+'icon-beercan.png');
+//     background-size: 16px 30px;
+//   }
+// } removeMe
 
 #hero {
   max-height: 920px;
@@ -1367,7 +1377,7 @@ nav.prev-next-entry {
 
     h1 {
       font-size: 24px;
-      color: $yellow;
+      color: $brand-red;
       text-align: center;
       letter-spacing: 4px;
       margin-bottom: 5px;
@@ -1424,31 +1434,34 @@ nav.prev-next-entry {
   padding-bottom: 50px;
 }
 .button-w-icon {
-  font-size: 22px;
   color: white;
   text-transform: uppercase;
-  letter-spacing: 2px;
   font-family: $font-tertiary;
-  border: 3px solid white;
-  padding: 7px 15px;
-  padding-left: 80px;
-  display: block;
-
-  &:before {
-    z-index: 1;
-    left: 17px;
-    top: 6px;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 60px;
-    height: 50px;
-    background-color: white;
-    left: 0;
-    top: 0;
-  }
+  background-color:$brand-red;
+  border: 3px solid $brand-red;
+  padding: .65rem;
+  margin: 5% 0;
+  border-radius:3px;
+    [class^="icon-"],
+    [class*=" icon-"]{
+      padding-right: .4rem;
+      font-size: 1rem;
+      vertical-align: text-top;
+    }
+  // &:before {
+  //   z-index: 1;
+  //   left: .5rem;
+  //   top: .5rem;
+  // }
+  // &:after {
+  //   content: '';
+  //   position: absolute;
+  //   display: block;
+  //   width: 60px;
+  //   height: 50px;
+  //   left: 0;
+  //   top: 0;
+  // } removeMe
 
   &.alt {
     border-color: $color-1;
@@ -1558,7 +1571,7 @@ nav.prev-next-entry {
   }
 
   h1 {
-    color: $yellow;
+    color: $brand-red;
     text-align: center;
     letter-spacing: 3px;
   }
@@ -1627,7 +1640,7 @@ nav.prev-next-entry {
       height: 1px;
       content: '';
       position: absolute;
-      background: $yellow;
+      background: $brand-red;
       display: block;
       top: 90px;
       left: 50%;
@@ -1639,13 +1652,13 @@ nav.prev-next-entry {
       height: 200px;
       content: '';
       position: absolute;
-      border: 4px solid $yellow;
+      border: 4px solid $brand-red;
       display: block;
       top: -20px;
     }
   }
   h2 {
-    color: $yellow;
+    color: $brand-red;
     margin-bottom: 78px;
   }
 }
@@ -1735,13 +1748,18 @@ nav.prev-next-entry {
 /* footer */
 
 #footer {
-  background: #6b6a6a;
-  font-family: montserratregular, sans-serif;
+  background: #505050;
+  font-family: Open Sans, sans-serif;
   font-size: 14px;
+  padding: 1rem 0 0 0;
 
 	.flex {
-		padding-top: 50px;
-		padding-bottom: 50px;
+    padding-left: 0;
+    padding-right: 0;
+
+    & > * {
+     padding-left: 0 !important;
+    }
 
 		img {
       display: block;
@@ -1752,45 +1770,83 @@ nav.prev-next-entry {
         float: left;
       }
     }
-		p.copyright {
-      text-align: center;
+    h3,
+    p,
+    li{
       color: $footerTextColor;
+    }
+    .flex{
+      padding: 0;
 
-      @media all and (min-width: $mq1/$base+em) {
-        float: left;
-        margin-left: 20px;
-        padding-top: 38px;
+      & > * {
+       padding: 0 !important;
+      }
+
+      li{
+        line-height: 36px;
       }
     }
-		a.contact {
-      display: block;
-      margin: 10px auto 0;
-      border: 3px solid $footerTextColor;
-      padding: 15px 45px 15px 20px;
+		}
+    a{
       color: $footerTextColor;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      position: relative;
-      width: 260px;
 
       @media all and (min-width: $mq1/$base+em) {
-        float: right;
-        margin: 18px auto 0;
-      }
 
-      &:after {
-        display: block;
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        right: 16px;
-        top: 14px;
-        margin-left: 0;
-        background: url($images_path+'icon-arrow-white.svg') no-repeat right center;
-        background-size: 20px 20px;
-        @include rotate(-90deg);
       }
-		}
-	}
+	  }
+    .social-buttons {
+      a {
+        padding: .1rem .7rem;
+        background: grey;
+        display: inline-block;
+        font-size: 24px;
+        width: 45px;
+        text-align: center;
+        margin: .2rem 1rem 0 0;
+      }
+    }
+  .signup-form {
+    margin: .5rem 0;
+    input[type="text"] {
+      padding: .7rem 1rem;
+      width: 60%;
+    }
+    input[type="submit"] {
+      width: 24%;
+      padding: .7rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background: $brand-red;
+      text-transform: uppercase;
+    }
+  }
+  .contact-info {
+    color: $footerTextColor;
+    text-align: center;
+
+    .flex{
+      border-top: 2px solid white;
+    }
+    @media all and (min-width: $mq1/$base+em) {
+
+    }
+    .bull {
+      font-size: 26px;
+      line-height: 18px;
+      vertical-align: -4px;
+    }
+  }
+  .copyright {
+    background: $brand-black;
+    color: $footerTextColor;
+    text-align: center;
+
+    a{
+      margin-right: 2rem;
+    }
+    @media all and (min-width: $mq1/$base+em) {
+
+    }
+  }
 }
