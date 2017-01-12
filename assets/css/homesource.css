@@ -2514,9 +2514,6 @@ body.search h2 {
   border-bottom: 1px solid #d3d3d3;
   padding-bottom: 20px; }
 
-h3 {
-  font-weight: 900; }
-
 h4 {
   margin-bottom: 0;
   font-weight: 700; }
@@ -4146,29 +4143,67 @@ nav.prev-next-entry {
 #footer {
   background: #505050;
   font-family: Open Sans, sans-serif;
-  font-size: 14px; }
-  #footer .flex img {
-    display: block;
-    text-align: center;
-    margin: 10px auto; }
-    @media all and (min-width: 37.5em) {
-      #footer .flex img {
-        float: left; } }
-  #footer .flex h3,
-  #footer .flex p,
-  #footer .flex li {
+  font-size: 14px;
+  padding: 1rem 0 0 0; }
+  #footer .flex {
+    padding-left: 0;
+    padding-right: 0; }
+    #footer .flex > * {
+      padding-left: 0 !important; }
+    #footer .flex img {
+      display: block;
+      text-align: center;
+      margin: 10px auto; }
+      @media all and (min-width: 37.5em) {
+        #footer .flex img {
+          float: left; } }
+    #footer .flex h3,
+    #footer .flex p,
+    #footer .flex li {
+      color: #f8f8f8; }
+    #footer .flex .flex {
+      padding: 0; }
+      #footer .flex .flex > * {
+        padding: 0 !important; }
+      #footer .flex .flex li {
+        line-height: 36px; }
+  #footer a {
     color: #f8f8f8; }
-  #footer .flex a {
-    color: #f8f8f8;
-    margin-right: 2rem; }
+  #footer .social-buttons a {
+    padding: .1rem .7rem;
+    background: grey;
+    display: inline-block;
+    font-size: 24px;
+    width: 45px;
+    text-align: center;
+    margin: .2rem 1rem 0 0; }
+  #footer .signup-form {
+    margin: .5rem 0; }
+    #footer .signup-form input[type="text"] {
+      padding: .7rem 1rem;
+      width: 60%; }
+    #footer .signup-form input[type="submit"] {
+      width: 24%;
+      padding: .7rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background: #E93918;
+      text-transform: uppercase; }
   #footer .contact-info {
     color: #f8f8f8;
     text-align: center; }
     #footer .contact-info .flex {
       border-top: 2px solid white; }
+    #footer .contact-info .bull {
+      font-size: 26px;
+      line-height: 18px;
+      vertical-align: -4px; }
   #footer .copyright {
     background: #222;
     color: #f8f8f8;
     text-align: center; }
+    #footer .copyright a {
+      margin-right: 2rem; }
 
 /*# sourceMappingURL=homesource.css.map */
