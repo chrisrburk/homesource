@@ -83,12 +83,34 @@
 	<footer id="footer">
 		<div class="flex">
 			<div class="g1-flex4 g2-flex3 g3-flex6">
-				<img src="{{ craft.config.environmentVariables.assetsBaseUrl }}/images/hl.svg" width="76" height="76" alt="H.L.">
-				<p class="copyright">{{ footer.copyrightNotice|replace('{year}', now|date('Y')) }}</p>
+				<h3>Stay Connected</h3>
+        <p>Sign up for special offers and email updates. We do not share your personal information.</p>
 			</div>
 			<div class="g1-flex4 g2-flex3 g3-flex6">
-				<a class="contact" href="mailto:{{ footer.email }}">{{ footer.contactUsLabel }}</a>
+        <h3>Navigate</h3>
+        <ul>
+          <li>Home</li>
+          <li>Sell A Home</li>
+          <li>Buy A Home</li>
+          <li>Home Listings</li>
+        </ul>
 			</div>
 		</div>
+    <div class="contact-info">
+      <div class="flex">
+        <div class="g1-flex4 g2-flex6 g3-flex12">
+          HOMESOURCE PARTNERS, LLC 3015 PENNSYLVANIA AVE, COLORADO SPRINGS, CO 80907 MAP OFFICE: (719) 328-0300
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="flex">
+        <div class="g1-flex4 g2-flex6 g3-flex12">
+          <a href="{{ footer.privacyPolicyLabel }}">{{ footer.privacyPolicyLabel }}</a>
+          <a href="{{ footer.termsLabel }}">{{ footer.termsLabel }}</a>
+          <span>{{ footer.copyrightNotice|replace('{year}', now|date('Y')) }}</span>
+        </div>
+      </div>
+    </div>
 	</footer>
 {% endblock %}

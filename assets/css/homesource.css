@@ -4144,56 +4144,31 @@ nav.prev-next-entry {
 
 /* footer */
 #footer {
-  background: #6b6a6a;
+  background: #505050;
   font-family: Open Sans, sans-serif;
   font-size: 14px; }
-  #footer .flex {
-    padding-top: 50px;
-    padding-bottom: 50px; }
-    #footer .flex img {
-      display: block;
-      text-align: center;
-      margin: 10px auto; }
-      @media all and (min-width: 37.5em) {
-        #footer .flex img {
-          float: left; } }
-    #footer .flex p.copyright {
-      text-align: center;
-      color: #f8f8f8; }
-      @media all and (min-width: 37.5em) {
-        #footer .flex p.copyright {
-          float: left;
-          margin-left: 20px;
-          padding-top: 38px; } }
-    #footer .flex a.contact {
-      display: block;
-      margin: 10px auto 0;
-      border: 3px solid #f8f8f8;
-      padding: 15px 45px 15px 20px;
-      color: #f8f8f8;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      position: relative;
-      width: 260px; }
-      @media all and (min-width: 37.5em) {
-        #footer .flex a.contact {
-          float: right;
-          margin: 18px auto 0; } }
-      #footer .flex a.contact:after {
-        display: block;
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        right: 16px;
-        top: 14px;
-        margin-left: 0;
-        background: url("../images/icon-arrow-white.svg") no-repeat right center;
-        background-size: 20px 20px;
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-        transform: rotate(-90deg); }
+  #footer .flex img {
+    display: block;
+    text-align: center;
+    margin: 10px auto; }
+    @media all and (min-width: 37.5em) {
+      #footer .flex img {
+        float: left; } }
+  #footer .flex h3,
+  #footer .flex p,
+  #footer .flex li {
+    color: #f8f8f8; }
+  #footer .flex a {
+    color: #f8f8f8;
+    margin-right: 2rem; }
+  #footer .contact-info {
+    color: #f8f8f8;
+    text-align: center; }
+    #footer .contact-info .flex {
+      border-top: 2px solid white; }
+  #footer .copyright {
+    background: #222;
+    color: #f8f8f8;
+    text-align: center; }
 
 /*# sourceMappingURL=homesource.css.map */

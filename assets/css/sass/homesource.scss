@@ -40,6 +40,7 @@ $color-4: #cf6a34;
 $color-5: #e1dfdf;
 $bgColor: #f8f8f9;
 $brand-red: #E93918;
+$brand-black: #222;
 $lightGray: #d3d3d3;
 $footerTextColor: #f8f8f8;
 $barBgColor: #222;
@@ -1747,13 +1748,11 @@ nav.prev-next-entry {
 /* footer */
 
 #footer {
-  background: #6b6a6a;
+  background: #505050;
   font-family: Open Sans, sans-serif;
   font-size: 14px;
 
 	.flex {
-		padding-top: 50px;
-		padding-bottom: 50px;
 
 		img {
       display: block;
@@ -1764,45 +1763,37 @@ nav.prev-next-entry {
         float: left;
       }
     }
-		p.copyright {
-      text-align: center;
+    h3,
+    p,
+    li{
       color: $footerTextColor;
-
-      @media all and (min-width: $mq1/$base+em) {
-        float: left;
-        margin-left: 20px;
-        padding-top: 38px;
-      }
     }
-		a.contact {
-      display: block;
-      margin: 10px auto 0;
-      border: 3px solid $footerTextColor;
-      padding: 15px 45px 15px 20px;
+		a {
       color: $footerTextColor;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      position: relative;
-      width: 260px;
+      margin-right: 2rem;
 
       @media all and (min-width: $mq1/$base+em) {
-        float: right;
-        margin: 18px auto 0;
-      }
 
-      &:after {
-        display: block;
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        right: 16px;
-        top: 14px;
-        margin-left: 0;
-        background: url($images_path+'icon-arrow-white.svg') no-repeat right center;
-        background-size: 20px 20px;
-        @include rotate(-90deg);
       }
 		}
 	}
+  .contact-info {
+    color: $footerTextColor;
+    text-align: center;
+    .flex{
+      border-top: 2px solid white;
+    }
+    @media all and (min-width: $mq1/$base+em) {
+
+    }
+  }
+  .copyright {
+    background: $brand-black;
+    color: $footerTextColor;
+    text-align: center;
+
+    @media all and (min-width: $mq1/$base+em) {
+
+    }
+  }
 }
