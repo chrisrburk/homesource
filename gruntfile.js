@@ -22,6 +22,9 @@ module.exports = function(grunt) {
         },
         sass: {
             dist: {
+              options: {
+                  style: 'expanded'
+                },
                 files: {
                     'assets/css/homesource.css': 'assets/css/sass/homesource.scss'
                 }
