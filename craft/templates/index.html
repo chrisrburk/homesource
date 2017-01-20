@@ -15,21 +15,41 @@
 	<div id="hero">
 		{% set image = entry.heroImage.first() %}
 		{% if image %}
-			<img src="{{ image.getUrl({ height: 916 }) }}" alt="{{ image.title }}"/>
+      <video poster="" id="bgvid" playsinline autoplay muted loop>
+        <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+        <!-- <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm"> -->
+        <source src="{{ image.getUrl({ height: 916 }) }}" type="video/mp4">
+      </video>
 		{% endif %}
 
 		<div class="hero-info">
-			<h1>We always see the glass<br>
-				<span class="ir">Half Full</span>
-			</h1>
-			<p class="center reverse">Work with Happy Lager and you will find an endless<br>
-				tap of ideas, wit and creativity.
-			</p>
-			<p class="center"><a href="mailto:hi@happylager.dev" class="hero-cta">Pull up a bar stool</a></p>
+			<h1>Simple Buy <i class="bull">&bull;</i> Simple Sell <i class="bull">&bull;</i> Real Estate</h1>
+			<p class="center">
+        <a href="#" class="hero-cta">List a House</a>
+        <a href="#" class="hero-cta">Sell to Us</a>
+        <a href="#" class="hero-cta">Ready to Buy</a>
+      </p>
 		</div>
 	</div>
 
-	<section id="on-tap">
+  <!-- CTA FULL -->
+  <section id="questions" class="center">
+		<div class="flex">
+			<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
+				<h1 class="beta">Still have questions?</h1>
+				<h2 class="subfont delta center">Are you moving and on a tight deadline? Does your house need costly repairs? Are there foundation issues?…</h2>
+			</div>
+		</div>
+		<div class="flex">
+			<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
+				<hr class="horz-rule alt2">
+				<a class="big-arrow" href="{{ url('about') }}">SEE OUR FAQs</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ON TAP
+  <section id="on-tap">
 		<div class="flex">
 			<div class="g1-flex4 g2-flex6 g3-flex12">
 				<div class="on-tap-buttons-wrap">
@@ -55,9 +75,10 @@
 			{% endfor %}
 
 		</div>
-	</section>
+	</section> -->
 
-	<section id="how-made">
+	<!-- HOW MADE
+  <section id="how-made">
 		<div class="flex">
 			<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
 					<hr class="horz-rule alt">
@@ -76,9 +97,10 @@
 				<a class="big-arrow" href="{{ url('about') }}">Go</a>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
-	<section id="testimonials">
+	<!-- TESTS
+  <section id="testimonials">
 		<div class="flex">
 			{% for block in entry.testimonials %}
 				<div class="g1-flex4 g2-flex2 g3-flex4 bubble">
@@ -91,9 +113,10 @@
 				</div>
 			{% endfor %}
 		</div>
-	</section>
+	</section> -->
 
-	<section id="best-buddies">
+	<!-- BEST BUDS
+  <section id="best-buddies">
 		<div class="flex">
 			<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
 				<hr class="horz-rule alt3">
@@ -113,5 +136,5 @@
 				<h2 class="subfont delta center">Robin Richards &middot; President, Happy Lager</h2>
 			</div>
 		</div>
-	</section>
+	</section> -->
 {% endblock %}

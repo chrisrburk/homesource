@@ -1366,7 +1366,7 @@ nav.prev-next-entry {
   .hero-info {
     position: absolute;
     top: 50%;
-    width: 625px;
+    // width: 625px;
     left: 50%;
     @include translate(-50%, -50%);
 
@@ -1376,14 +1376,15 @@ nav.prev-next-entry {
     }
 
     h1 {
-      font-size: 24px;
-      color: $brand-red;
+      font-size: 30px;
+      color: white;
       text-align: center;
       letter-spacing: 4px;
       margin-bottom: 5px;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.24);
 
       @media all and (min-width: $mq1/$base+em) {
-        font-size: 30px;
+        font-size: 40px;
         margin-bottom: 30px;
       }
 
