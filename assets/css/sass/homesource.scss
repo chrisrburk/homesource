@@ -174,6 +174,7 @@ $barHeight: 30px;
 @import "icomoon";
 @import "type";
 @import "grid";
+@import "materialize";
 
 .horz-rule {
   border: 0;
@@ -294,27 +295,29 @@ a:hover, a:focus {
 }
 
 // buttons
-a.btn,
-button.btn {
-  color: $color-1;
-  border: 3px solid $color-1;
-  background: transparent;
-  padding: 17px 30px 14px 32px;
-  text-align: center;
-  line-height: 1;
-  font-family: $font-tertiary;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-weight: 600;
-  @include font-size(16);
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
+// a.btn,
+// button.btn {
+//   color: $color-1;
+//   border: 3px solid $color-1;
+//   background: transparent;
+//   padding: 17px 30px 14px 32px;
+//   text-align: center;
+//   line-height: 1;
+//   font-family: $font-tertiary;
+//   letter-spacing: 1px;
+//   text-transform: uppercase;
+//   font-weight: 600;
+//   @include font-size(16);
+//   position: relative;
+//   overflow: hidden;
+//   display: inline-block;
+// }
 // video
 video {
   width: 100%;
   height: auto;
+  pointer-events: none;
+  background: $color-1;
 }
 .video-img-wrap {
   padding: 0;
@@ -524,7 +527,7 @@ $navSpacing: 50px;
 #header {
 	position: relative;
   background: #fff;
-	// border-bottom: 4px solid $lightGray; removeMe
+  z-index: 100;
 
   .flex {
     padding: 0  1.25rem !important;
@@ -534,15 +537,13 @@ $navSpacing: 50px;
 		padding-left: 0 !important;
 		padding-right: 0 !important;
 	}
-	h1 {
+	.logo {
     display: inline-block;
     position: relative;
     top: 8px;
-    // left: calc(50% - 150px); removeMe
 
     @media all and (min-width: $mq4/$base+em) {
-      top: 8px;
-      position: absolute;
+      top: 6px;
     }
 	}
 	nav {
@@ -558,8 +559,6 @@ $navSpacing: 50px;
 		li {
       display: block;
       text-align: center;
-      width: 50%;
-      float: right;
 
       @media all and (min-width: $mq1/$base+em) {
         width: auto;
@@ -568,36 +567,35 @@ $navSpacing: 50px;
       }
 
       @media all and (min-width: $mq4/$base+em) {
-  			float: right;
-  			width: $navWidth;
+  			// width: $navWidth;
       }
 
 			&:not(:first-child) {
 
         @media all and (min-width: $mq4/$base+em) {
-          // margin-left: $navSpacing; removeMe
+          // margin-left: $navSpacing;
         }
       }
 			&:nth-child(3) {
 
         @media all and (min-width: $mq4/$base+em) {
-          // margin-left: $navSpacing * 2 + 300; removeMe
+          // margin-left: $navSpacing * 2 + 300;
         }
       }
 			a {
-        display: block;
-        padding: 15px 10px;
+        // display: block;
+        // padding: 15px 10px;
         position: relative;
 
         @media all and (min-width: $mq1/$base+em) {
-          padding: 20px 20px;
+          // padding: 20px 20px;
         }
         @media all and (min-width: $mq2/$base+em) {
-          padding: 20px;
+          // padding: 20px;
         }
 
         @media all and (min-width: $mq4/$base+em) {
-          padding: 20px 0;
+          // padding: 20px 0;
         }
 
 				&:before {
@@ -659,11 +657,13 @@ $navSpacing: 50px;
             content: ' ]';
           }
 				}
+        i {
+          display: inline-block;
+          font-size: .85rem;
+          line-height: 36px;
+        }
         &:hover{
-          background: #505050;
-          strong{
-            color: white;
-          }
+          color: white;
         }
 			}
 		}
@@ -672,12 +672,12 @@ $navSpacing: 50px;
 
 /* main */
 #main {
-  overflow-x: hidden;
+  overflow: hidden; //MAY NEED TO CHANGE THIS AT SOME POINT EDIT?
 
 	h3 {
-    margin-bottom: 1.6em;
-    @include subheadingText;
-    text-align: center;
+    // margin-bottom: 1.6em;
+    // @include subheadingText;
+    // text-align: center; removeMe
   }
   h4 {
     margin-bottom: 1.2em;
@@ -1340,7 +1340,7 @@ nav.prev-next-entry {
 // } removeMe
 
 #hero {
-  max-height: 920px;
+  max-height: 400px;
   overflow: hidden;
   position: relative;
 
@@ -1366,7 +1366,7 @@ nav.prev-next-entry {
   .hero-info {
     position: absolute;
     top: 50%;
-    // width: 625px;
+    width: 75%;
     left: 50%;
     @include translate(-50%, -50%);
 
@@ -1376,15 +1376,15 @@ nav.prev-next-entry {
     }
 
     h1 {
-      font-size: 30px;
+      // font-size: 30px;
       color: white;
       text-align: center;
       letter-spacing: 4px;
-      margin-bottom: 5px;
+      margin-bottom: 1rem;
       text-shadow: 0 3px 6px rgba(0,0,0,0.24);
 
       @media all and (min-width: $mq1/$base+em) {
-        font-size: 40px;
+        // font-size: 40px;
         margin-bottom: 30px;
       }
 
@@ -1516,8 +1516,7 @@ nav.prev-next-entry {
     display: inline-block;
   }
 }
-.view-more,
-.hero-cta {
+.view-more {
   font-size: 13px;
   color: white;
   text-transform: uppercase;
@@ -1548,16 +1547,25 @@ nav.prev-next-entry {
 
 }
 .hero-cta {
-  font-size: 16px;
+  font-size: 14px;
   float: none;
   display: inline-block;
-  padding-right: 35px;
+  color: white;
+  text-transform: uppercase;
+  font-family: $font-tertiary;
+  position: relative;
+  background-color: rgba(255,255,255,0.35);
+  border-radius: 2px;
+  border: 3px solid #FFFFFF;
+  text-align: center;
+  padding: .3rem 1.4rem;
+  margin-right: 1rem;
+  font-weight: 600;
 
-  &:after {
-    width: 26px;
-    height: 26px;
-    top: 8px;
-    background-size: 26px 26px;
+  &:hover,
+  &.active{
+    color: white;
+    background-color: rgba(233,57,24,0.75);
   }
 }
 
@@ -1811,10 +1819,14 @@ nav.prev-next-entry {
       }
     }
   .signup-form {
-    margin: .5rem 0;
+    margin: .5rem 0 0 0;
     input[type="text"] {
-      padding: .7rem 1rem;
+      // padding: .7rem 1rem; removeMe
+      background: white;
+      padding: 0 1rem;
       width: 60%;
+      box-sizing: border-box;
+      height: 2.74rem;
     }
     input[type="submit"] {
       width: 24%;
