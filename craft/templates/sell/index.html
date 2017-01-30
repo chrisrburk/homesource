@@ -1,0 +1,167 @@
+{#
+ # Homepage template
+ # -----------------
+ #
+ # This template gets loaded whenever the site's homepage is requested, because
+ # the "Homepage" single-entry section's Template setting is set to "index".
+ #
+ # An `entry` variable will be automatically passed to this template, which will
+ # be set to the Homepage entry.
+-#}
+
+{% extends "_layouts/site" %}
+
+{% block main %}
+	<div id="hero">
+		{% set image = entry.heroImage.first() %}
+		{% if image %}
+      <video poster="" id="bgvid" playsinline autoplay muted loop>
+        <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+        <!-- <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm"> -->
+        <source src="{{ image.getUrl({ height: 916 }) }}" type="video/mp4">
+      </video>
+		{% endif %}
+
+		<div class="hero-info">
+			<h1>Simple Buy <i class="bull">&bull;</i> Simple Sell <i class="bull">&bull;</i> Real Estate</h1>
+			<p class="center">
+        <a href="/list" class="hero-cta">List a House</a>
+        <a href="#" class="hero-cta active">Sell to Us</a>
+        <a href="/buy" class="hero-cta">Ready to Buy</a>
+      </p>
+		</div>
+	</div>
+
+  <!-- MAIN BODY -->
+  <section>
+    <div class="flex">
+      <div class="g1-flex4 g2-flex2 g3-flex8">
+        <h2>Thinking of selling? Start here…</h2>
+        <div class="block text">
+          <p>At HomeSource Partners, we are the leading source for buying and selling homes in Colorado Springs &amp; Manitou Springs and Fountain. We do more than just buy and sell your homes &amp; fixer uppers, we can fulfill every real estate needs you may have including relieving you of distressed property by giving you fast cash for your home.</p>
+        </div>
+        <h2>We buy houses in any condition and all price ranges</h2>
+        <div class="block text">
+          <p>At HomeSource Partners, we buy ugly homes and distressed properties for top dollar amounts. Regardless of the type of home whether single family, duplex or old construction, we are able to buy ugly houses, and even houses that have been abandoned for some time. If you have inherited a house that you don’t want to maintain, we can take it off or hands for the highest cash price. One of the added advantages to using HomeSource Partners to get fast cash for your home and equity is that there is no additional cost to use our services.</p>
+        </div>
+        <h3>Contact HomeSource Partners, Inc. today at 719-328-0300 for all of your Colorado Springs, CO sell a home needs.</h3>
+      </div>
+      <div class="g1-flex4 g2-flex2 g3-flex4">
+        <h2>Request more info</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+        <form action="" class="contact-form">
+          <input type="text" name="name" placeholder="Jane Smith">
+          <input type="text" name="phone" placeholder="(719) 555-1234">
+          <input type="email" name="email" placeholder="jane@gmail.com">
+          <textarea name="message" placeholder="I have Questions..."></textarea>
+          <input type="submit" name="Submit" value="Submit" class="btn">
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FULL -->
+  <article class="work-entry work-entry-feature">
+		<img src="/assets/site/autumn-1748644.jpg" alt="sportsrus-bigfeature" width="100%">
+				<div class="summary-wrap">
+						<a href="/faqs"><h2 class="center reverse beta">Still have questions?</h2></a>
+						<h3 class="delta center subfont reverse "><a href="/faqs">Are you moving and on a tight deadline? Does your house need costly repairs?<br>Are there foundation issues?…</a></h3>
+					    <!-- <div class="block text">
+							<p>New e-commerce experience for Sports R' Us</p>
+						</div> -->
+            <br>
+							<p class="center"><a href="/faqs" class="btn inverted">See Our FAQs</a></p>
+				</div>
+			</article>
+
+
+	<!-- ON TAP
+  <section id="on-tap">
+		<div class="flex">
+			<div class="g1-flex4 g2-flex6 g3-flex12">
+				<div class="on-tap-buttons-wrap">
+					<a class="button-w-icon icon-beer" href="{{ url('work') }}">What’s on Tap</a>
+					<a href="{{ url('work') }}" class="view-more">View More</a>
+				</div>
+			</div>
+		</div>
+		<div class="flex">
+
+			{# Pull in the three latest Work entries #}
+			{% for workEntry in craft.entries.section('work').limit(3) %}
+				<div class="g1-flex4 g2-flex2 g3-flex4">
+					<a href="{{ workEntry.url }}" class="services-entry-wrap">
+						{% set image = workEntry.featuredThumb.first() %}
+						{% if image %}
+							<img src="{{ image.getUrl('thumb') }}" alt="image.title"/>
+						{% endif %}
+						<h3 class="center">{{ workEntry.title }}</h3>
+						{{ workEntry.shortDescription }}
+					</a>
+				</div>
+			{% endfor %}
+
+		</div>
+	</section> -->
+
+	<!-- HOW MADE
+  <section id="how-made">
+		<div class="flex">
+			<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
+					<hr class="horz-rule alt">
+					<a class="button-w-icon alt icon-beaker" href="{{ url('about') }}">How it’s made</a>
+			</div>
+		</div>
+		<div class="flex">
+			<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
+				<h1 class="beta">Uncap Happy Lager to find out how it’s made</h1>
+				<h2 class="subfont delta center">Our Experience &middot; Our Services &middot; And more</h2>
+			</div>
+		</div>
+		<div class="flex">
+			<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
+				<hr class="horz-rule alt2">
+				<a class="big-arrow" href="{{ url('about') }}">Go</a>
+			</div>
+		</div>
+	</section> -->
+
+	<!-- TESTS
+  <section id="testimonials">
+		<div class="flex">
+			{% for block in entry.testimonials %}
+				<div class="g1-flex4 g2-flex2 g3-flex4 bubble">
+					<blockquote>{{ block.quote }}</blockquote>
+					{% set photo = block.photo.first() %}
+					{% if photo %}
+						<img class="" src="{{ photo.url({ width: 84, height: 84 }) }}" alt="{{ photo.title }}">
+					{% endif %}
+					<p><cite class="gamma reverse">{{ block.cite }}</cite></p>
+				</div>
+			{% endfor %}
+		</div>
+	</section> -->
+
+	<!-- BEST BUDS
+  <section id="best-buddies">
+		<div class="flex">
+			<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
+				<hr class="horz-rule alt3">
+				<a class="button-w-icon alt2 icon-beercan">Our best Drinking Buddies</a>
+				<ul class="logos">
+					{% for logo in entry.clientLogos %}
+						<li>
+							<img src="{{ logo.getUrl() }}" alt="logo.title"/>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="flex">
+			<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
+				<h1 class="beta center">Some Partners Make it all worth while</h1>
+				<h2 class="subfont delta center">Robin Richards &middot; President, Happy Lager</h2>
+			</div>
+		</div>
+	</section> -->
+{% endblock %}
