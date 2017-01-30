@@ -17,9 +17,9 @@
 
 {# Define the site navigation #}
 {% set nav = {
-	services: { title: "Ready to Buy", desc: "Services" },
-	work:     { title: "Sell to Us", desc: "Our Work" },
-	news:     { title: "List a House", desc: "The Latest" }
+	buy: { title: "Ready to Buy", desc: "Looking to Buy" },
+	sell:     { title: "Sell to Us", desc: "We Buy Houses" },
+	list:     { title: "List a House", desc: "Looking to Sell" }
 } %}
 
 {# Set the `bodyClass` variable to the entry's section handle if there is one,
@@ -52,26 +52,24 @@
 		</div>
 	</div>
 
-	<header id="header">
+	<header id="header" class="z-depth-1">
 		<div class="flex">
-			<div class="g1-flex4 g2-flex1 g3-flex12">
-				<h1><a href="{{ siteUrl }}"><img src="{{ craft.config.environmentVariables.assetsBaseUrl }}/images/homesource-logo.jpg" width="173px" alt="Homesource - Simple Buy. Simple Sell. Real Estate."></a></h1>
+			<div class="g1-flex4 g2-flex1 g3-flex3">
+				<a href="{{ siteUrl }}" class="logo"><img src="{{ craft.config.environmentVariables.assetsBaseUrl }}/images/homesource-logo.jpg" width="173px" alt="Homesource - Simple Buy. Simple Sell. Real Estate."></a>
       </div>
-      <div class="g1-flex4 g2-flex6 g3-flex12">
-        <nav>
-					<ul>
-            <li>
-              <button class="button-w-icon" href="{{ url('portal') }}"><i class="icon-gear"></i>Tenant Portal</button>
-            </li>
+      <div class="g1-flex4 g2-flex6 g3-flex9">
+        <nav class="z-depth-0">
+					<ul class="right">
 						{% for slug, item in nav %}
 							<li>
 								<a href="{{ url(slug) }}" {% if craft.request.firstSegment == slug %}class="sel"{% endif %}>
 									<strong>{{ item.title }}</strong>
-									<!-- <span>-</span> -->
-									<!-- <em>{{ item.desc }}</em> -->
 								</a>
 							</li>
 						{% endfor %}
+            <li>
+              <a href="{{ url('portal') }}" class="btn">Tenant Login <i class="icon-gear"></i></a>
+            </li>
 					</ul>
 				</nav>
 			</div>
@@ -102,18 +100,18 @@
           <div class="flex">
             <div class="g1-flex4 g2-flex3 g3-flex6">
               <ul>
-                <li><a href="#" title="">List A House</a></li>
-                <li><a href="#" title="">Sell to Us</a></li>
-                <li><a href="#" title="">Buy A Home</a></li>
-                <li><a href="#" title="">Home Listings</a></li>
+                <li><a href="/list" title="List A House">List A House</a></li>
+                <li><a href="/sell" title="Sell to Us">Sell to Us</a></li>
+                <li><a href="/buy" title="Buy A Home">Buy A Home</a></li>
+                <li><a href="/listings" title="Home Listings">Home Listings</a></li>
               </ul>
             </div>
             <div class="g1-flex4 g2-flex3 g3-flex6">
               <ul>
-                <li><a href="#" title="">Meet the Team</a></li>
-                <li><a href="#" title="">How Homesource Helps You</a></li>
-                <li><a href="#" title="">What Our Customers Say</a></li>
-                <li><a href="#" title="">Contact Us</a></li>
+                <li><a href="/about" title="Meet the Team">Meet the Team</a></li>
+                <li><a href="/faqs" title="How Homesource Helps You">How Homesource Helps You</a></li>
+                <li><a href="/testimonials" title="What Our Customers Say">What Our Customers Say</a></li>
+                <li><a href="/contact" title="Contact Us">Contact Us</a></li>
               </ul>
           </div>
         </div>
