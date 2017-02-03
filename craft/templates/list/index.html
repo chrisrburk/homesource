@@ -23,14 +23,11 @@
 		{% endif %}
 
 		<div class="hero-info">
-      {% if entry.heading|length %}
-        <h1>{{ entry.heading }}</h1>
-      {% endif %}
-
+			<h1>Simple Buy <i class="bull">&bull;</i> Simple Sell <i class="bull">&bull;</i> Real Estate</h1>
 			<p class="center">
-        <a href="#" class="hero-cta">List a House</a>
-        <a href="#" class="hero-cta">Sell to Us</a>
-        <a href="#" class="hero-cta">Ready to Buy</a>
+        <a href="/list" class="hero-cta active">List a House</a>
+        <a href="/sell" class="hero-cta">Sell to Us</a>
+        <a href="/buy" class="hero-cta">Ready to Buy</a>
       </p>
 		</div>
 	</div>
@@ -39,9 +36,15 @@
   <section>
     <div class="flex">
       <div class="g1-flex4 g2-flex2 g3-flex8">
-        {% if entry.body|length %}
-          {{ entry.body }}
-        {% endif %}
+        <h2>Thinking of selling? Start here…</h2>
+        <div class="block text">
+          <p>At HomeSource Partners, we are the leading source for buying and selling homes in Colorado Springs &amp; Manitou Springs and Fountain. We do more than just buy and sell your homes &amp; fixer uppers, we can fulfill every real estate needs you may have including relieving you of distressed property by giving you fast cash for your home.</p>
+        </div>
+        <h2>We buy houses in any condition and all price ranges</h2>
+        <div class="block text">
+          <p>At HomeSource Partners, we buy ugly homes and distressed properties for top dollar amounts. Regardless of the type of home whether single family, duplex or old construction, we are able to buy ugly houses, and even houses that have been abandoned for some time. If you have inherited a house that you don’t want to maintain, we can take it off or hands for the highest cash price. One of the added advantages to using HomeSource Partners to get fast cash for your home and equity is that there is no additional cost to use our services.</p>
+        </div>
+        <h3>Contact HomeSource Partners, Inc. today at 719-328-0300 for all of your Colorado Springs, CO sell a home needs.</h3>
       </div>
       <div class="g1-flex4 g2-flex2 g3-flex4">
         <h2>Request more info</h2>
@@ -58,40 +61,19 @@
   </section>
 
   <!-- CTA FULL -->
-  <section id="cta-full">
   <article class="work-entry work-entry-feature">
 		<img src="/assets/site/autumn-1748644.jpg" alt="sportsrus-bigfeature" width="100%">
 				<div class="summary-wrap">
-          {% if entry.subheading|length %}
-            <a href="{{ entry.linkUrl }}"><h2 class="center reverse beta">{{ entry.subheading }}</h2></a>
-          {% endif %}
-          {% if entry.shortDescription|length %}
-          <h3 class="delta center subfont reverse "><a href="{{ entry.linkUrl }}">{{ entry.shortDescription }}</a></h3>
-          {% endif %}
-						<!-- <div class="block text">
+						<a href="/faqs"><h2 class="center reverse beta">Still have questions?</h2></a>
+						<h3 class="delta center subfont reverse "><a href="/faqs">Are you moving and on a tight deadline? Does your house need costly repairs?<br>Are there foundation issues?…</a></h3>
+					    <!-- <div class="block text">
 							<p>New e-commerce experience for Sports R' Us</p>
 						</div> -->
             <br>
-							<p class="center"><a href="{{ entry.linkUrl }}" class="btn inverted">See Our FAQs</a></p>
+							<p class="center"><a href="/faqs" class="btn inverted">See Our FAQs</a></p>
 				</div>
 			</article>
-  </section>
 
-  <!-- TESTS
-  <section id="testimonials">
-    <div class="flex">
-      {% for block in entry.testimonials %}
-        <div class="g1-flex4 g2-flex2 g3-flex4 bubble">
-          <blockquote>{{ block.quote }}</blockquote>
-          {% set photo = block.photo.first() %}
-          {% if photo %}
-            <img class="" src="{{ photo.url({ width: 84, height: 84 }) }}" alt="{{ photo.title }}">
-          {% endif %}
-          <p><cite class="gamma reverse">{{ block.cite }}</cite></p>
-        </div>
-      {% endfor %}
-    </div>
-  </section> -->
 
 	<!-- ON TAP
   <section id="on-tap">
@@ -144,7 +126,21 @@
 		</div>
 	</section> -->
 
-
+	<!-- TESTS
+  <section id="testimonials">
+		<div class="flex">
+			{% for block in entry.testimonials %}
+				<div class="g1-flex4 g2-flex2 g3-flex4 bubble">
+					<blockquote>{{ block.quote }}</blockquote>
+					{% set photo = block.photo.first() %}
+					{% if photo %}
+						<img class="" src="{{ photo.url({ width: 84, height: 84 }) }}" alt="{{ photo.title }}">
+					{% endif %}
+					<p><cite class="gamma reverse">{{ block.cite }}</cite></p>
+				</div>
+			{% endfor %}
+		</div>
+	</section> -->
 
 	<!-- BEST BUDS
   <section id="best-buddies">
