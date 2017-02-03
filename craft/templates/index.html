@@ -62,13 +62,17 @@
   <article class="work-entry work-entry-feature">
 		<img src="/assets/site/autumn-1748644.jpg" alt="sportsrus-bigfeature" width="100%">
 				<div class="summary-wrap">
-						<a href="/faqs"><h2 class="center reverse beta">Still have questions?</h2></a>
-						<h3 class="delta center subfont reverse "><a href="/faqs">Are you moving and on a tight deadline? Does your house need costly repairs?<br>Are there foundation issues?…</a></h3>
-					    <!-- <div class="block text">
+          {% if entry.subheading|length %}
+            <a href="{{ entry.linkUrl }}"><h2 class="center reverse beta">{{ entry.subheading }}</h2></a>
+          {% endif %}
+          {% if entry.shortDescription|length %}
+          <h3 class="delta center subfont reverse "><a href="{{ entry.linkUrl }}">{{ entry.shortDescription }}</a></h3>
+          {% endif %}
+						<!-- <div class="block text">
 							<p>New e-commerce experience for Sports R' Us</p>
 						</div> -->
             <br>
-							<p class="center"><a href="/faqs" class="btn inverted">See Our FAQs</a></p>
+							<p class="center"><a href="{{ entry.linkUrl }}" class="btn inverted">See Our FAQs</a></p>
 				</div>
 			</article>
   </section>
